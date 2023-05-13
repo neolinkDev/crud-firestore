@@ -13,3 +13,26 @@ html {
 .table-container {
   overflow-x: auto;
 }
+
+.hide-modal {
+  display: none !important;
+}
+
+.modal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.9);
+}
+
+.modal-bg {
+  background-color: white;
+  border-radius: 5px;
+  padding: 1rem;
+  box-shadow: 0px 0px 5px 0px rgb(121, 119, 119);
+}

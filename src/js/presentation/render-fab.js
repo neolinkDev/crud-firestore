@@ -1,7 +1,11 @@
+import { toggleModal } from './render-modal';
 
-
-
+/**
+ * 
+ * @param {HTMLElement} element 
+ */
 export const renderFAB = (element) => {
+  
   const $faButton = document.createElement('button');
   $faButton.classList.add(
     'fixed',
@@ -19,5 +23,8 @@ export const renderFAB = (element) => {
 
   element.appendChild($faButton);
 
-  //
+  $faButton.addEventListener('click', () => {
+
+    toggleModal();
+  });
 };

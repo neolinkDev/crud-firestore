@@ -1,6 +1,10 @@
 let table;
 const d = document;
 
+/**
+ * 
+ * @returns {HTMLTableElement}
+ */
 const createTable = () => {
 
   const $table = d.createElement('table');
@@ -11,6 +15,7 @@ const createTable = () => {
   $tableHead.innerHTML = `
     <tr>
       <th class="pb-2 px-4 text-center whitespace-nowrap">Nombre cliente</th>
+      <th class="pb-2 px-4 text-center">Correo</th>
       <th class="pb-2 px-4 text-center">Teléfono</th>
       <th class="pb-2 px-4 text-center">Empresa</th>
       <th class="pb-2 px-4 text-center">Acciones</th>
