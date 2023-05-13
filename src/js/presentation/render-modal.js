@@ -2,7 +2,7 @@ let modal;
 
 
 export const toggleModal = () => {
-  modal.classList.toggle('hide-modal');
+  modal.classList.toggle('show');
 }
 
 /**
@@ -14,7 +14,7 @@ export const renderModal = (element) => {
   if (modal) return;
 
   modal = document.createElement('DIV');
-  modal.classList.add('w-1/2', 'modal', 'hide-modal');
+  modal.classList.add('w-1/2', 'modal');
   modal.innerHTML = `
     <form class="modal-bg">
       <div class="mb-6">
