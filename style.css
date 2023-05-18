@@ -14,19 +14,6 @@ html {
   overflow-x: auto;
 }
 
-/* Propiedades iniciales del modal */
-.modal {
-  opacity: 0;
-  transform: scale(0.8);
-  transition: opacity 0.3s ease, transform 0.3s ease;
-}
-
-/* Propiedades del modal cuando se muestra */
-.modal.show {
-  opacity: 1;
-  transform: scale(1);
-}
-
 .modal {
   display: flex;
   justify-content: center;
@@ -37,6 +24,10 @@ html {
   width: 100vw;
   height: 100vh;
   background-color: rgba(0, 0, 0, 0.9);
+}
+
+.hidden  {
+  display: none;
 }
 
 .modal-bg {

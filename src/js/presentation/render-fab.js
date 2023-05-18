@@ -17,7 +17,9 @@ export const renderFAB = (element) => {
     'font-bold',
     'py-2',
     'px-4',
-    'rounded'
+    'rounded',
+    'cursor-pointer',
+    'z-1'
   );
   $faButton.innerHTML = '+';
 
