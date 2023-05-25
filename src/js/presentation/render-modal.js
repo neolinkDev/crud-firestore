@@ -1,5 +1,6 @@
 import { saveCustomer } from '../../../firebase/config';
 import {
+  capitalize,
   checkCompany,
   checkCustomer,
   checkEmail,
@@ -95,7 +96,7 @@ export const renderModal = (element) => {
       isCustomerValid && isEmailValid && isPhoneValid && isCompanyValid;
 
     if (isFormValid) {
-      saveCustomer(customer.value, email.value, phone.value, company.value);
+      saveCustomer(capitalize(customer.value), email.value, phone.value, company.value.toUpperCase());
 
       crudForm.reset();
       resetFormStyles();

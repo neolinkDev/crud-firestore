@@ -184,3 +184,11 @@ export const resetFormStyles = () => {
     input.classList.remove('border-green-500', 'border-red-500')
   );
 };
+
+
+/**
+ * 
+ * @param {string} str 
+ * @returns {string}
+ */
+export const capitalize = (str) => str.replace(/\b\w/g, (match) => match.toUpperCase());
