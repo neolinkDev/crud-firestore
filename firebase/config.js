@@ -2,7 +2,7 @@
 
 // Import the functions you need from the SDKs you need
 import { initializeApp } from 'firebase/app';
-import { getFirestore, collection, addDoc, getDocs, onSnapshot } from 'firebase/firestore';
+import { getFirestore, collection, addDoc, getDocs, onSnapshot, limit, query, orderBy, serverTimestamp } from 'firebase/firestore';
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -28,17 +28,33 @@ export const saveCustomer = (customer, email, phone, company) => {
     customer,
     email,
     phone,
-    company
+    company,
+    createdAt: serverTimestamp()
   })
 }
 
 //
-export const getCustomers = () => {
-   return getDocs(collection(db, 'customers'))
-}
+// export const getCustomers = () => {
+//    return getDocs(collection(db, 'customers'))
+// }
+export const getCustomers = async () => {
+  const querySnapshot = await getDocs(query(collection(db, 'customers'), limit(10)));
+  return querySnapshot;
+};
+
+
 
 //
+// export const onGetCustomers = (fn) => {
+//   return onSnapshot(collection(db, 'customers'), fn)
+// }
+
+// export const onGetCustomers = (fn) => {
+//   return onSnapshot(query(collection(db, 'customers'), limit(10)), fn);
+// }
+
 export const onGetCustomers = (fn) => {
-  return onSnapshot(collection(db, 'customers'), fn)
+  return onSnapshot(query(collection(db, 'customers'), orderBy('createdAt'), limit(10)), fn);
 }
+
 

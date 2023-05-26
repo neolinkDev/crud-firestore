@@ -35,10 +35,13 @@ const createTable = () => {
  * @param {HTMLElement} element
  */
 export const renderTable = async (element) => {
+
   onGetCustomers((querySnapshot) => {
+
     let customersTable = '';
 
     querySnapshot.forEach((doc) => {
+      
       const customer = doc.data();
 
       customersTable += `
@@ -66,7 +69,5 @@ export const renderTable = async (element) => {
   if (!table) {
     table = createTable();
     element.append(table);
-
-    //
   }
 };
