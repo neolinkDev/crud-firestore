@@ -20,7 +20,7 @@ export const toggleModal = () => {
  *
  * @param {HTMLDivElement} element
  */
-export const renderModal = (element) => {
+export const renderModal = (element, currentPage) => {
   if (modal) return;
 
   modal = document.createElement('DIV');

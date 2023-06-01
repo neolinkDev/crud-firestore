@@ -10,7 +10,7 @@ export const renderFAB = (element) => {
   $faButton.classList.add(
     'fixed',
     'bottom-20',
-    'right-20',
+    'right-28',
     'bg-orange-500',
     'hover:bg-orange-700',
     'text-white',
@@ -19,7 +19,8 @@ export const renderFAB = (element) => {
     'px-4',
     'rounded',
     'cursor-pointer',
-    'z-1'
+    'z-1',
+    'fadeInShake'
   );
   $faButton.innerHTML = '+';
 

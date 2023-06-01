@@ -24,7 +24,7 @@ const createTable = () => {
   `;
 
   const $tableBody = d.createElement('tbody');
-
+  
   $table.append($tableHead, $tableBody);
 
   return $table;
@@ -34,9 +34,21 @@ const createTable = () => {
  *
  * @param {HTMLElement} element
  */
-export const renderTable = async (element) => {
+export const renderTable = async (element, currentPage, pageSize) => {
 
-  onGetCustomers((querySnapshot) => {
+  if (!table) {
+    table = createTable();
+    element.append(table);
+  }
+
+  const $loaderRow = d.createElement('tr');
+  // $loaderRow.id = 'loader-row';
+  $loaderRow.innerHTML = `<td colspan="5" class="text-2xl text-center text-pink-500">Cargando...</td>`;
+
+  table.querySelector('tbody').innerHTML = '';
+  table.querySelector('tbody').appendChild($loaderRow);
+
+  onGetCustomers(currentPage, pageSize, (querySnapshot) => {
 
     let customersTable = '';
 
@@ -64,10 +76,12 @@ export const renderTable = async (element) => {
     });
 
     table.querySelector('tbody').innerHTML = customersTable;
+    // $loaderRow.style.display = 'none';
   });
 
-  if (!table) {
-    table = createTable();
-    element.append(table);
-  }
+  // if (!table) {
+  //   table = createTable();
+  //   element.append(table);
+
+  // }
 };
